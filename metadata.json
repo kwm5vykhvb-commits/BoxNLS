@@ -1,0 +1,8 @@
+{
+  "name": "   NLSbox",
+  "description": "Gestionnaire de téléchargement accéléré multi-thread et sniffer multimédia vidéo \u0026 HLS avec lecteur intégré.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
