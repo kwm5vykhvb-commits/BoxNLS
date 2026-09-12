@@ -432,6 +432,14 @@ app.post('/api/sniff-page', async (req, res) => {
     const finalUrl = response.url;
     const html = await response.text();
     const durationMs = Date.now() - startTime;
+    
+    // Cloudflare / Anti-Bot Detection
+    if (response.status === 403 || html.includes('Cloudflare') || html.includes('Just a moment...')) {
+       return res.json({
+         success: false,
+         error: "Accès bloqué par la protection Anti-Bot (Cloudflare) du site sur ce serveur. \n\nAstuce : Allez sur la page de l'épisode, lancez la vidéo, et essayez de copier l'URL directe du lecteur (souvent ansembed.net, sendvid, vidmoly, etc.) pour la coller ici."
+       });
+    }
 
     // Extract Page Title
     const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
