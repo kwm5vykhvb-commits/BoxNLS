@@ -1,4 +1,4 @@
-FROM node:20-bullseye-slim
+FROM node:20-bookworm-slim
 
 # Install ffmpeg
 RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
